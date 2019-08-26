@@ -32,8 +32,9 @@ mongoose.connect("mongodb://localhost/mongooseScrapeMaster", { useNewUrlParser: 
 
 
 //routes
-
-
+require("./routes/scrapeRoutes")(app);
+require("./routes/articlesRoutes")(app);
+require("./routes/singleArticleRoutes")(app);
 
 
 // Starting the server, syncing our models ------------------------------------/
