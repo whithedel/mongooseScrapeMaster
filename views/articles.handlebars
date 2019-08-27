@@ -1,0 +1,15 @@
+<div class="card-columns text-center" style="background-color: rgb(137, 162, 247)">
+    {{#each article}}
+    
+    <div class="card" style="width: 18rem;">
+        <img src="{{picture}}" class="card-img-top" alt="News related picture">
+        <div class="card-body">
+            <h4 class="card-title">{{headline}}</h4>
+            <p class="card-text">{{summary}}<br>{{snippet}}</p>
+            <a href="{{url}}" class="btn btn-primary">Read Article</a>
+            <a href="/articles/{{_id}}" data-id="{{_id}}" id='saveNote'>Article Notes</a>
+        </div>
+    </div>
+
+    {{/each}}
+</div>

@@ -35,6 +35,7 @@ mongoose.connect("mongodb://localhost/mongooseScrapeMaster", { useNewUrlParser: 
 require("./routes/scrapeRoutes")(app);
 require("./routes/articlesRoutes")(app);
 require("./routes/singleArticleRoutes")(app);
+require("./routes/404Routes")(app);
 
 
 // Starting the server, syncing our models ------------------------------------/

@@ -4,7 +4,7 @@ const db = require("../models");
 
 module.exports = function (app) {
 
-    app.get("/scrape", function (req, res) {
+    app.get("/", function (req, res) {
 
         let results = []
         axios.get("https://www.cnet.com/news/").then(response => {
@@ -60,7 +60,7 @@ module.exports = function (app) {
                 }
                 let infoInResults = results.values()
                 for (let data of infoInResults) {
-                    if (data.headline !== "") {
+                    if (data.headline !== "" && data.url !== "" && data.summary !== "" && data.picture !== "" && data.snippet !== "") {
                         saveToDatabase(data);
                     }
                 }
@@ -76,10 +76,8 @@ module.exports = function (app) {
                     .catch(function (err) {
                         console.log(err);
                     });
-
-                // res.send("Scrape Complete");
             }
-
+            res.render("home");
         })
 
     });

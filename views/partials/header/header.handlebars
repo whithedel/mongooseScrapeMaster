@@ -1,9 +1,12 @@
-<header>
+<header class="offset">
     <div class="row m-auto">
         <div class="col-12 m-auto">
 
             <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-                <a class="navbar-brand" href="/">oneManShort Checkers</a>
+                <a class="navbar-brand" href="/">
+                                <img src="image/undraw_newspaper_k72w.png" alt="">
+                CNET NEWS SCRAPPER
+                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
                     aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -15,16 +18,8 @@
                             <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/profile">Profile</a>
+                            <a class="nav-link" href="/articles">News feed</a>
                         </li>
-                        {{#if user}}
-                        <li class="nav-item">
-                            <a class="nav-link" id="logoutLink" href="/logout">Logout</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="checkersLink" href="/checkers">Checkers</a>
-                        </li>
-                        {{/if}}
                     </ul>
                 </div>
             </nav>

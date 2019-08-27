@@ -6,7 +6,8 @@ let Schema = mongoose.Schema;
 let ArticleSchema = new Schema({
   headline: {
     type: String,
-    required: false
+    required: true,
+    unique: true 
   },
 
   summary: {
@@ -21,18 +22,19 @@ let ArticleSchema = new Schema({
 
   picture: {
     type: String,
-    required: false
+    required: true
   },
 
   url: {
     type: String,
-    required: false
+    required: true,
+    unique: true 
   },
 
-  note: {
+  note: [{
     type: Schema.Types.ObjectId,
     ref: "Note"
-  }
+  }]
 });
 
 ArticleSchema.plugin(findOrCreate)

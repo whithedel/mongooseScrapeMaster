@@ -1,0 +1,47 @@
+<div class="text-center mx-auto" style="z-index: 7;">
+
+
+    <div class="jumbotron mb-3 mx-auto" style="background-color: rgba(0, 0, 0, 0.685); color: #97caef;">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img src="{{article.picture}}" class="card-img-top" alt="News related picture" style="height: auto">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h4 class="card-title">{{article.headline}}</h4>
+                    <p class="card-text">{{article.summary}}<br>{{article.snippet}}</p>
+                    <a href="/articles" class="btn btn-primary">News feed</a>
+                </div>
+            </div>
+        </div>
+        <div class="row no-gutters text-center">
+            <form action="/articles/{{article._id}}" method="POST" class="form-note mx-auto">
+                        <button class="btn btn-md btn-primary btn-block mb-3" id="noteBtn" type="submit">Save note</button>
+                        <label for="author" class="sr-only">Author</label>
+                        <input type="text"  name="author" id="author" class="form-control mb-1" placeholder="Author"
+                            required autofocus>
+                        <label for="title" class="sr-only">title</label>
+                        <input type="text" readonly name="title" id="inputTitle" class="form-control"
+                            placeholder="{{article.headline}}" value="{{article.headline}}" required>
+                            <label for="commentSection" class="sr-only">Article note</label>
+                        <textarea rows="6" cols="50" type="text" name="commentSection" id="commentSection" class="form-control mb-1" required autofocus>
+                            </textarea>
+                    </form>
+        </div>
+    </div>
+
+</div>
+
+{{#if article.note}}
+<h1 class="text-center" style="color: #97caef; text-shadow: .1rem .1rem .8rem black;">Comments</h1>
+<ul class="list-group" style="background-color: rgba(0, 0, 0, 0.685); color: #97caef;"></ul>
+{{#each article.note}}
+
+  <li class="list-group-item">
+<h2>{{this.author}}</h2>
+<p>{{this.commentSection}}</p>
+  </li>
+
+{{/each}}
+</ul>
+{{/if}}
