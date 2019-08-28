@@ -1,7 +1,12 @@
-<div class="card-columns text-center" style="background-color: rgb(137, 162, 247)">
-    {{#each article}}
-    
-    <div class="card" style="width: 18rem;">
+{{!-- <div class="container"> --}}
+    <div class="row">
+
+   {{#each article}}
+<div class="card-columns text-center col-sm-4 d-flex align-items-stretch"
+    style="background-color: rgb(137, 162, 247); padding-bottom:100px; z-index: 1; overflow: scroll;">
+ 
+
+    <div class="card mx-auto" style="width: 18rem;">
         <img src="{{picture}}" class="card-img-top" alt="News related picture">
         <div class="card-body">
             <h4 class="card-title">{{headline}}</h4>
@@ -11,5 +16,15 @@
         </div>
     </div>
 
-    {{/each}}
+    
 </div>
+{{/each}}
+
+    </div>
+{{!-- </div> --}}
+
+
+
+
+
+

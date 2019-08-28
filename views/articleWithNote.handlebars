@@ -15,33 +15,58 @@
             </div>
         </div>
         <div class="row no-gutters text-center">
-            <form action="/articles/{{article._id}}" method="POST" class="form-note mx-auto">
-                        <button class="btn btn-md btn-primary btn-block mb-3" id="noteBtn" type="submit">Save note</button>
-                        <label for="author" class="sr-only">Author</label>
-                        <input type="text"  name="author" id="author" class="form-control mb-1" placeholder="Author"
-                            required autofocus>
-                        <label for="title" class="sr-only">title</label>
-                        <input type="text" readonly name="title" id="inputTitle" class="form-control"
-                            placeholder="{{article.headline}}" value="{{article.headline}}" required>
-                            <label for="commentSection" class="sr-only">Article note</label>
-                        <textarea rows="6" cols="50" type="text" name="commentSection" id="commentSection" class="form-control mb-1" required autofocus>
+            <div class="col-sm-6 mt-1">
+                <form action="POST" data-articleId="{{article._id}}" id="noteForm" class="form-note mx-auto">
+                    <button class="btn btn-md btn-primary btn-block mb-3" id="noteBtn" type="submit">Save note</button>
+                    <label for="author" class="sr-only">Author</label>
+                    <input type="text" name="author" id="author" class="form-control mb-1" placeholder="Author" required
+                        autofocus>
+                    <label for="title" class="sr-only">title</label>
+                    <input type="text" readonly name="title" id="inputTitle" class="form-control"
+                        placeholder="{{article.headline}}" value="{{article.headline}}" required>
+                    <label for="commentSection" class="sr-only">Article note</label>
+                    <textarea rows="6" cols="50" type="text" name="commentSection" id="commentSection"
+                        class="form-control mb-1" required autofocus>
                             </textarea>
-                    </form>
+                </form>
+            </div>
+            <div class="col-sm-6 mt-1">
+                {{#if article.note}}
+                {{#each article.note}}
+                <div class="toast " role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                        <strong class="mr-auto">Comment from {{this.author}}</strong>
+                        <small class="text-muted"></small>
+                        <button data-noteId="{{this._id}}" id="noteBtnDelete" type="button" data-authorId="{{this}}" class="ml-2 mb-1 mt-2  btn-sm btn-link" data-dismiss="toast" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="toast-body">
+                        {{this.commentSection}}
+                    </div>
+                </div>
+                {{/each}}
+                 {{/if}}
+
+                
+
+            </div>
+
         </div>
     </div>
 
 </div>
 
-{{#if article.note}}
+{{!-- {{#if article.note}}
 <h1 class="text-center" style="color: #97caef; text-shadow: .1rem .1rem .8rem black;">Comments</h1>
 <ul class="list-group" style="background-color: rgba(0, 0, 0, 0.685); color: #97caef;"></ul>
 {{#each article.note}}
 
-  <li class="list-group-item">
-<h2>{{this.author}}</h2>
-<p>{{this.commentSection}}</p>
-  </li>
+<li class="list-group-item">
+    <h2>{{this.author}}</h2>
+    <p>{{this.commentSection}}</p>
+</li>
 
 {{/each}}
 </ul>
-{{/if}}
+{{/if}} --}}
