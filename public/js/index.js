@@ -59,7 +59,7 @@ const clickHandler = {
         .then(response => {
             alert("If new articles are found we will display them in a few seconds Thank you")
             function LoadArticle() { 
-                window.location.href = "http://localhost:3000/articles";
+                window.location.href = "/articles";
                 alert("Scrape complete!")
         };
             setTimeout(LoadArticle, 5000)
