@@ -57,7 +57,11 @@ const clickHandler = {
     handleScrapeNewArticle : function () {
         httpRequest.scrapeNewArticle()
         .then(response => {
-            function LoadArticle() { window.location.href = "http://localhost:3000/articles";};
+            alert("If new articles are found we will display them in a few seconds Thank you")
+            function LoadArticle() { 
+                window.location.href = "http://localhost:3000/articles";
+                alert("Scrape complete!")
+        };
             setTimeout(LoadArticle, 5000)
         } )
     }
